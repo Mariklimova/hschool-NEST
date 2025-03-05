@@ -1,5 +1,6 @@
 import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { StudService } from './students.service';
+import { StudentsDto } from 'src/dto/stud.dto';
 
 
 interface iStud {
@@ -28,7 +29,7 @@ export class StudController {
     }
   }
   @Post()
-  createItem(@Body() obj: iBody): iStud[] | string {
+  createItem(@Body() obj: StudentsDto): iStud[] | string {
     try {
       return this.appService.createItem(obj);
     } catch (error) {
